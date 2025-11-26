@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react'
+import FormCnpj from './components/FormCnpj'
+import Resultado from './components/Resultado'
+import { buscarPorCnpj } from './services/api'
+import DataHora from "./components/Datahora";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+  const [cnpj, setCnpj] = useState('')
+  const [dados, setDados] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [erro, setErro] = useState(null)
+
+// Quando o CNPJ mudar, o React executa isso aqui:
+useEffect(() => {
+  // Se o campo estiver vazio, apaga os dados e o erro
+  if (cnpj === '') {
+    setDados(null)
+    setErro(null)
+  }
+}, [cnpj])
+
+// Função que consulta o CNPJ quando o usuário clicar no botão
+async function handleBuscar(event) {
+  // Impede que a página recarregue ao enviar o formulário
+  if (event) event.preventDefault()
+
+  // Remove tudo que não for número
+  const cnpjLimpo = cnpj.replace(/\D/g, '')
+
+  // Verifica se o CNPJ tem 14 números
+  if (cnpjLimpo.length !== 14) {
+    setErro('O CNPJ precisa ter 14 números.')
+    setDados(null)
+    return
+  }
+
+  try {
+    setLoading(true)    // Mostra "Carregando..."
+    setErro(null)       // Remove mensagens de erro antigas
+
+    // Chama a API
+    const resposta = await buscarPorCnpj(cnpjLimpo)
+
+    // Se a API não retornar nada → erro
+    if (!resposta) {
+      throw new Error('Não foi possível buscar os dados.')
+    }
+
+    // Guarda os dados recebidos da API
+    setDados(resposta)
+
+  } catch (erro) {
+    // Se acontecer um erro, mostra a mensagem
+    setErro(erro.message)
+    setDados(null)
+
+  } finally {
+    // Sempre desliga o "Carregando..."
+    setLoading(false)
+  }
 }
 
-export default App
+  return (
+    <div className="container">
+      <header>
+        <DataHora />
+        <h1>Consulta de CNPJ</h1>
+        <p>Digite um CNPJ e veja os dados cadastrais da empresa ou organização</p>
+      </header>
+
+      <main>
+        <FormCnpj
+          cnpj={cnpj}
+          setCnpj={setCnpj}
+          onBuscar={handleBuscar}
+          loading={loading}
+        />
+
+        {loading && <p className="info">Carregando...</p>}
+        {erro && <p className="error">{erro}</p>}
+
+        {dados && <Resultado dados={dados} />}
+      </main>
+
+    </div>
+  )
+}
