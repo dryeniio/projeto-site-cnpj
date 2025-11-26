@@ -20,6 +20,8 @@ useEffect(() => {
   }
 }, [cnpj])
 
+
+
 // Função que consulta o CNPJ quando o usuário clicar no botão
 async function handleBuscar(event) {
   // Impede que a página recarregue ao enviar o formulário
@@ -66,7 +68,8 @@ async function handleBuscar(event) {
       <header>
         <DataHora />
         <h1>Consulta de CNPJ</h1>
-        <p>Digite um CNPJ e veja os dados cadastrais da empresa ou organização</p>
+        <p>Digite um CNPJ e veja os dados cadastrais da empresa ou organização.</p>
+        <br/>
       </header>
 
       <main>
@@ -81,6 +84,8 @@ async function handleBuscar(event) {
         {erro && <p className="error">{erro}</p>}
 
         {dados && <Resultado dados={dados} />}
+        {dados && <div><br /><button onClick={() => window.print()} className="btn-imprimir no-print">Imprimir</button></div>}
+        
       </main>
 
     </div>
