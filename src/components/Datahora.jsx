@@ -4,7 +4,7 @@ export default function DataHora() {
   const [dataHora, setDataHora] = useState("");
 
   useEffect(() => {
-    // Função que atualiza a data e hora
+    // funcao que atualiza a data e hora
     function atualizar() {
       const agora = new Date();
       const formatado = agora.toLocaleString("pt-BR", {
@@ -14,7 +14,7 @@ export default function DataHora() {
       setDataHora(formatado);
     }
 
-    atualizar(); // Atualiza imediatamente ao entrar no site
+    atualizar(); // atualiza imediatamente ao entrar no site
 
     const interval = setInterval(atualizar, 1000); // Atualiza a cada 1 segundo
 
