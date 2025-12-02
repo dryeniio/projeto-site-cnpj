@@ -2,7 +2,7 @@
 // Exemplo: https://publica.cnpj.ws/cnpj/:cnpj
 export async function buscarPorCnpj(cnpj) {
   try {
-    const url = `https://publica.cnpj.ws/cnpj/${cnpj}`
+    const url = `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`
     const response = await fetch(url)
 
     if (!response.ok) {
