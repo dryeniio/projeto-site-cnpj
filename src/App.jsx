@@ -65,7 +65,7 @@ async function handleBuscar(event) {
 }
 
   return (
-    <div className="container">
+    <div className="container d-flex flex-column min-vh-100">
         <div className='p-4 mb-4'>
           <div>
             <DataHora />
