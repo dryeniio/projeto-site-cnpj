@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
-import FormCnpj from './components/FormCnpj'
-import Resultado from './components/Resultado'
-import { buscarPorCnpj } from './services/api'
+import { useState, useEffect } from 'react';
+import FormCnpj from './components/FormCnpj';
+import Resultado from './components/Resultado';
+import { buscarPorCnpj } from './services/api';
 import DataHora from "./components/Datahora";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function App() {
@@ -65,28 +66,33 @@ async function handleBuscar(event) {
 
   return (
     <div className="container">
-      <header>
-        <DataHora />
-        <h1>Consulta de CNPJ</h1>
-        <p>Digite um CNPJ e veja os dados cadastrais da empresa ou organização.</p>
-        <br/>
-      </header>
+        <div className='p-4 mb-4'>
+          <div>
+            <DataHora />
+            <h1>Consulta de CNPJ</h1>
+            <p>Digite um CNPJ e veja os dados cadastrais da empresa ou organização.</p>
+            <br/>
+          </div>
 
-      <main>
-        <FormCnpj
-          cnpj={cnpj}
-          setCnpj={setCnpj}
-          onBuscar={handleBuscar}
-          loading={loading}
-        />
-
-        {loading && <p className="info">Carregando...</p>}
-        {erro && <p className="error">{erro}</p>}
-
-        {dados && <Resultado dados={dados} />}
-        {dados && <div><br /><button onClick={() => window.print()} className="btn-imprimir no-print">Imprimir</button></div>}
         
-      </main>
+          <div>
+            <FormCnpj
+              cnpj={cnpj}
+              setCnpj={setCnpj}
+              onBuscar={handleBuscar}
+              loading={loading}
+            />
+          </div>
+          </div>
+          <div>
+          {loading && <p className="info">Carregando...</p>}
+          {erro && <p className="error">{erro}</p>}
+
+          {dados && <Resultado dados={dados} />}
+          
+          {dados && <div className='p-4'><br /><button onClick={() => window.print()} className="btn-imprimir no-print">Imprimir</button></div>}
+        </div>
+
 
     </div>
   )

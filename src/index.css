@@ -8,20 +8,17 @@
 
 body {
   background: #f2f4f7;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
 }
 
 /* CONTAINER */
-.container {
+/* .container {
   background: #fff;
   width: 740px;
   padding: 32px 40px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-}
+} */
 
 /* TITULOS */
 h1 {
