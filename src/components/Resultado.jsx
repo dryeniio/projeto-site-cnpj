@@ -96,7 +96,7 @@ export default function Resultado({ dados }) {
           <div>
             {empresa.cnaes_secundarios && empresa.cnaes_secundarios.length > 0 ? (
               <ul>
-                {empresa.cnaes_secundarios.map((atividade, index) => (
+                {empresa.cnaes_secundarios.map((atividade, index) => ( // percorre o array de atividades secundárias
                   <li key={index}>
                     {atividade.codigo} - {atividade.descricao}
                   </li>
