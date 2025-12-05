@@ -7,7 +7,9 @@
 
 🏢 Projeto CNPJ – Consulta e Validação
 
-Aplicação em React + Vite desenvolvida para consultar, validar e exibir informações de CNPJ, utilizando uma API externa ou backend próprio.
+Aplicação em React + Vite desenvolvida para consultar, validar e exibir informações de CNPJ, utilizando uma API fornecida para o projeto.
+
+Link da API [Brasil API](https://brasilapi.com.br/)
 
 
 ---
@@ -18,13 +20,12 @@ Aplicação em React + Vite desenvolvida para consultar, validar e exibir inform
 
 ⚡ Vite
 
-🎨 CSS / Tailwind (opcional)
+🎨 CSS
 
-🔐 API de consulta de CNPJ
+🔐 API de consulta de CNPJ Brasil API
 
-🧹 ESLint
+🧹 Bootstrap
 
-🗂️ Axios / Fetch (para requisições)
 
 
 
@@ -37,8 +38,6 @@ Aplicação em React + Vite desenvolvida para consultar, validar e exibir inform
 ✔️ Validação automática do formato
 
 📝 Exibição organizada dos dados (Razão Social, Nome Fantasia, Endereço, Situação etc.)
-
-💾 Histórico (opcional)
 
 🚨 Tratamento de erros e mensagens amigáveis
 
@@ -56,23 +55,6 @@ npm run dev
 
 # Gerar build de produção
 npm run build
-
-
----
-
-🔌 Configuração da API
-
-Defina sua API de consulta no arquivo:
-
-src/services/api.js
-
-Exemplo:
-
-import axios from "axios";
-
-export const api = axios.create({
-  baseURL: "https://minha-api-cnpj.com",
-});
 
 
 ---
@@ -128,6 +110,15 @@ Aplicações internas
 
 O projeto já vem configurado com ESLint.
 Se quiser melhorar para produção, considere ativar regras baseadas em TypeScript.
+
+---
+
+
+### 💚 Criadores
+* Enio Enrique: [Link Perfil GitHub](https://github.com/dryeniio)
+* André Luiz: [Link Perfil GitHub](https://github.com/andreluiz05)
+* Fernando Vitor:[link perfil github](https://github.com/fernando2907)
+* Erik Menezes: [link perfil GitHub](https://github.com/erikmenezes07)
 
 
 ---
