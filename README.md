@@ -1,16 +1,142 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+🏢 Projeto CNPJ – Consulta e Validação
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Aplicação em React + Vite desenvolvida para consultar, validar e exibir informações de CNPJ, utilizando uma API externa ou backend próprio.
+
+
+---
+
+🚀 Tecnologias Utilizadas
+
+⚛️ React
+
+⚡ Vite
+
+🎨 CSS / Tailwind (opcional)
+
+🔐 API de consulta de CNPJ
+
+🧹 ESLint
+
+🗂️ Axios / Fetch (para requisições)
+
+
+
+---
+
+📌 Funcionalidades
+
+🔍 Consulta de CNPJ em tempo real
+
+✔️ Validação automática do formato
+
+📝 Exibição organizada dos dados (Razão Social, Nome Fantasia, Endereço, Situação etc.)
+
+💾 Histórico (opcional)
+
+🚨 Tratamento de erros e mensagens amigáveis
+
+
+
+---
+
+📦 Como Rodar o Projeto
+
+# Instalar dependências
+npm install
+
+# Rodar modo desenvolvimento
+npm run dev
+
+# Gerar build de produção
+npm run build
+
+
+---
+
+🔌 Configuração da API
+
+Defina sua API de consulta no arquivo:
+
+src/services/api.js
+
+Exemplo:
+
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "https://minha-api-cnpj.com",
+});
+
+
+---
+
+⚙️ Plugins do Vite (React)
+
+Seu projeto utiliza React com Vite e suporta dois plugins oficiais:
+
+🔹 @vitejs/plugin-react
+
+Com Babel/oxc, fornece Fast Refresh.
+
+🔹 @vitejs/plugin-react-swc
+
+Com SWC, oferece build e HMR mais rápidos.
+
+
+---
+
+🧩 Estrutura de Pastas (exemplo)
+
+src/
+ ├── components/
+ │    ├── InputCnpj.jsx
+ │    ├── Resultado.jsx
+ │    └── Loader.jsx
+ ├── pages/
+ │    └── Home.jsx
+ ├── services/
+ │    └── api.js
+ └── App.jsx
+
+
+---
+
+📘 O que é o Projeto?
+
+Este projeto foi criado para facilitar a consulta de CNPJ de forma rápida, intuitiva e moderna, ideal para:
+
+Sistemas comerciais
+
+Ferramentas de cadastro
+
+Automação de dados empresariais
+
+Aplicações internas
+
+
+
+---
+
+🧹 ESLint e Boas Práticas
+
+O projeto já vem configurado com ESLint.
+Se quiser melhorar para produção, considere ativar regras baseadas em TypeScript.
+
+
+---
+
+📄 Licença
+
+Este projeto é de uso livre para estudos ou uso pessoal.
+
+
+---
+
+.
